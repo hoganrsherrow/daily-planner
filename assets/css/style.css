@@ -13,6 +13,14 @@ textarea{
   padding: 10px;
 }
 
+input {
+  width: 380px
+}
+
+svg {
+  margin: auto;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -40,6 +48,8 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding: 12px;
+  width: 80px
 }
 
 .past {
@@ -63,7 +73,10 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
-  width: 30px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .saveBtn i:hover {

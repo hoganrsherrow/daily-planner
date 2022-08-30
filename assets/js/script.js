@@ -8,7 +8,7 @@ console.log(currentHour);
 
 // Generate hour class block
 function generateInputEl(hour) {
-    console.log(hour);
+    //console.log(hour);
     var inputEl = document.createElement("input");
     inputEl.setAttribute("type", "text");
     // Use the id to call localStorage.
@@ -30,7 +30,9 @@ function generateInputEl(hour) {
 function generateSaveBtnEl() {
     var saveBtnEl = document.createElement("div");
     saveBtnEl.classList.add("saveBtn");
-
+    saveBtnEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+  </svg>`;
 
     return saveBtnEl;
 }
@@ -52,7 +54,7 @@ function generateRows() {
         row.append(generateSaveBtnEl());
 
         $(".container").append(row);
-        console.log("row appended");
+        //console.log("row appended");
     }
 };
 
@@ -73,6 +75,7 @@ function saveToLocal() {
 
 $(document).ready(function () {
     var m = moment().format("dddd, MMMM D");
+    // If localStorage dates do not match, clear localStorage
     if (m == localStorage.getItem("m")) {
         // had to set if statement up like this due to === and !== funky business
         console.log("Dates match");
@@ -81,11 +84,10 @@ $(document).ready(function () {
         console.log("Local storage has been cleared");
     }
     localStorage.setItem("m", m);
-    console.log("The document is ready!");
-    console.log(m);
-    console.log(localStorage.getItem("m"));
+    //console.log("The document is ready!");
+    //console.log(m);
+    //console.log(localStorage.getItem("m"));
     $("#currentDay").text(m);
-    // If localStorage dates do not match, clear localStorage
     generateRows();
     $(".saveBtn").click(saveToLocal);
 });
