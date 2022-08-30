@@ -16,8 +16,8 @@ console.log(moment("12-25-1995", "MM-DD-YYYY"));
 
 
 $(document).ready(function(){
-    
-})
+    console.log("The document is ready!");
+});
 
 /* General steps moving forward:
     - Use Moment.js to get current day
