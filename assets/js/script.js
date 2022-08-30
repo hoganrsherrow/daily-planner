@@ -11,6 +11,8 @@ function generateInputEl(hour) {
     console.log(hour);
     var inputEl = document.createElement("input");
     inputEl.setAttribute("type", "text");
+    // Use the id to call and save localStorage.
+    inputEl.id = hour;
     inputEl.value = "This is where the text will go";
     if(hour < currentHour) {
         inputEl.classList.add("past");
@@ -54,6 +56,17 @@ function generateRows() {
     }
 };
 
+// Save to Local Storage
+function saveToLocal() {
+    console.log($(this).siblings("input")[0].value);
+    console.log($(this).siblings("input"));
+    let key = $(this).siblings("input")[0].id;
+    let item = $(this).siblings("input")[0].value;
+    localStorage.setItem(key, item);
+    console.log(key);
+    console.log(localStorage.getItem(key));
+    console.log(localStorage);
+}
 
 // Retrieve Local Storage 
 
@@ -64,6 +77,7 @@ $(document).ready(function(){
     console.log(m);
     $("#currentDay").text(m);
     generateRows();
+    $(".saveBtn").click(saveToLocal);
 });
 
 /* General steps moving forward:
