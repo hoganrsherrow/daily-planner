@@ -1,11 +1,8 @@
-// Connection check
-console.log("Connection is working");
 // Testing JQuery
 $("header").click(function() {
     console.log("The title has been clicked.");
 });
-// Testing Moment.js
-console.log(moment("12-25-1995", "MM-DD-YYYY"));
+//console.log(moment().format("dddd, MMMM D"));
 
 
 // Generate columns
@@ -16,7 +13,10 @@ console.log(moment("12-25-1995", "MM-DD-YYYY"));
 
 
 $(document).ready(function(){
+    var m = moment().format("dddd, MMMM D");
     console.log("The document is ready!");
+    console.log(m);
+    $("#currentDay").text(m);
 });
 
 /* General steps moving forward:
